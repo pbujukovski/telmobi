@@ -18,8 +18,7 @@ public class Phone {
     private PhoneManufacturer manufacturer;
 
     @NotNull
-    @OneToOne
-    private PhoneModel model;
+    private Long modelId;
 
     @NotNull
     private int ram;
@@ -39,16 +38,26 @@ public class Phone {
     public Phone() {
     }
 
-    public Phone(Long ID, PhoneManufacturer phoneManufacturer, PhoneModel phoneModel,int ram, int rom, String processor,double price,String imageUrl){
-        this.ID= ID;
+    public Phone(PhoneManufacturer phoneManufacturer, Long phoneModelId,int ram, int rom, String processor,double price,String imageUrl){
         this.manufacturer=phoneManufacturer;
-        this.model=phoneModel;
+        this.modelId=phoneModelId;
         this.ram=ram;
         this.rom=rom;
         this.processor=processor;
         this.price=price;
         this.imageUrl= imageUrl;
     }
+    public Phone(Long ID,PhoneManufacturer phoneManufacturer, Long phoneModelId,int ram, int rom, String processor,double price,String imageUrl){
+        this.ID= ID;
+        this.manufacturer=phoneManufacturer;
+        this.modelId=phoneModelId;
+        this.ram=ram;
+        this.rom=rom;
+        this.processor=processor;
+        this.price=price;
+        this.imageUrl= imageUrl;
+    }
+
 
     public Long getID() {
         return ID;
@@ -66,13 +75,6 @@ public class Phone {
         this.manufacturer = manufacturer;
     }
 
-    public PhoneModel getModel() {
-        return model;
-    }
-
-    public void setModel(PhoneModel model) {
-        this.model = model;
-    }
 
     public int getRam() {
         return ram;
@@ -112,5 +114,13 @@ public class Phone {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Long getModelId() {
+        return modelId;
+    }
+
+    public void setModelId(Long modelId) {
+        this.modelId = modelId;
     }
 }

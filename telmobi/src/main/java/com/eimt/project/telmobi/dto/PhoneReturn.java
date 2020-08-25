@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PhoneReturn {
+public class PhoneReturn implements Comparable {
 
     @NotNull
     private Long ID;
@@ -35,4 +35,13 @@ public class PhoneReturn {
     @NotNull
     private String imageUrl;
 
+    @Override
+    public int compareTo(Object o) {
+        PhoneReturn other = (PhoneReturn)o;
+        if(this.price>other.price)
+            return 1;
+        if(this.price<other.price)
+            return -1;
+        return 0;
+    }
 }

@@ -3,6 +3,7 @@ package com.eimt.project.telmobi.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class PhoneManufacturer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @NaturalId
     private String name;
 
     @OneToMany
@@ -23,8 +25,12 @@ public class PhoneManufacturer {
 
     public PhoneManufacturer() {
     }
-    public PhoneManufacturer(Long Id, String name, List<PhoneModel> phoneModels){
-        this.Id = Id;
+    public PhoneManufacturer(String name, List<PhoneModel> phoneModels){
+        this.name = name;
+        this.phoneModels=phoneModels;
+    }
+    public PhoneManufacturer(Long Id,String name, List<PhoneModel> phoneModels){
+        this.Id= Id;
         this.name = name;
         this.phoneModels=phoneModels;
     }
