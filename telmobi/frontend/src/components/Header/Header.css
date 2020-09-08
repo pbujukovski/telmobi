@@ -1,12 +1,12 @@
 .app-navigation{
-    background-color:  #235952;
+    background-color:  #393b44;
 }
 .text-brown{
     text-decoration: none;
-    color:#ecfbfc;
+    color:#ffc93c;
 }
 .text-brown:hover{
-    color:#eae7d9;
+    color:#ffc93c;
 }
 .dropdown-toggle{
     font-weight: bold;

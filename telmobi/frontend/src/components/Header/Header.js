@@ -1,14 +1,13 @@
 import React from 'react';
 import {Link, withRouter} from 'react-router-dom'
-import SearchBar from '../Search/SearchBar'
 import "./Header.css"
 const Header = (props) => {
     const handleLogout = () => {
         props.history.push('/');
         props.onLogout();
     };
-    const genres=props.genreNames.map((genre,index)=>{
-        return (<Link to={"/genre/"+genre} key={index} className="nav-link text-dark">{genre.toString().charAt(0).toUpperCase()+genre.toString().slice(1)}</Link>);
+    const manufacturers=props.manufacturerNames.map((manufacturer,index)=>{
+        return (<Link to={"/manufacturer/"+manufacturer} key={index} className="nav-link text-dark">{manufacturer.toString().charAt(0).toUpperCase()+manufacturer.toString().slice(1)}</Link>);
     });
     let menuItems=[]
     
@@ -21,9 +20,6 @@ const Header = (props) => {
             {props.currentUser.username}
             </span>
         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        
-         <Link to={"/users/"+props.currentUser.username+""} className="nav-link text-dark">Profile</Link>
-          <div className="dropdown-divider"></div>
           <Link to={"#"} className="nav-link text-dark" onClick={handleLogout}>Logout</Link>
         </div>
       </li>
@@ -47,9 +43,9 @@ const Header = (props) => {
 
     return (
 <nav className="navbar navbar-expand-lg app-navigation">
-  <Link to={"/"} className="navbar-brand text-brown">Readmore</Link>
+  <Link to={"/"} className="navbar-brand text-brown">Telmobi</Link>
  {props.currentUser!==null && props.currentUser.roleName === "ROLE_ADMIN"?<span className="nav-link text-brown">
-            <Link to={"/books/create"} className="text-brown" ><b>Add book</b></Link>
+            <Link to={"/phones/create"} className="text-brown" ><b>Add Phone</b></Link>
             </span>:""}
   
   <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,17 +55,16 @@ const Header = (props) => {
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
     <ul className="navbar-nav mr-auto">
       <li className="nav-item dropdown" >
-            <span className="nav-link dropdown-toggle d-block text-brown" href="#" id="genreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Genres
+            <span className="nav-link dropdown-toggle d-block text-brown" href="#" id="manufacturerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Manufacturer
             </span>
-        <div className="dropdown-menu" aria-labelledby="genreDropdown">
-          {genres}
+        <div className="dropdown-menu" aria-labelledby="manufacturerDropdown">
+          {manufacturers}
 
         </div>
 
       </li>
     </ul>
-    <SearchBar/>
         {menuItems}
         </div>
         </nav>

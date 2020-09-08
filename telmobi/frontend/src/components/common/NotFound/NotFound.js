@@ -9,7 +9,7 @@ const NotFound = (props) => {
                     404
                 </h1>
                 <br/>
-                <div className="desc text-danger d-block mx-auto">
+                <div className="desc text-danger d-block mx-auto">  
                     The page you're looking for was not found.
                 </div>
                 <br/>

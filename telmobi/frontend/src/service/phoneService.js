@@ -12,13 +12,13 @@ const PS = {
         apiUtils.get("/phone/all/price/?minPrice="+minPrice+"&maxPrice="+maxPrice);
     },
     getPhone:(phoneId)=>{
-        return apiUtils.get("/phone/" + phoneId);
+        return apiUtils.get("/phone/"+phoneId);
     },
     deletePhone:(phoneId)=>{
         return apiUtils.delete("/phone/" + phoneId);
     },
     findPhoneByManufacturer:(phoneManufacturer)=>{
-        return apiUtils.post("all/manufacturer" + phoneManufacturer);
+        return apiUtils.get("/phone/all/manufacturer/" + phoneManufacturer);
     }
 
 }
